@@ -1,0 +1,105 @@
+;
+; OsrDio.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=OsrHardware
+ClassGuid={cfb15040-5bc7-11d3-b194-0060b0efd4aa}
+Provider="OSR Open Systems Resources, Inc."
+CatalogFile=OsrDio.cat
+DriverVer=
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+;OsrDio_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+OsrDio.sys  = 1
+;WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1
+
+
+;*****************************************
+; Install Section
+;*****************************************
+[ClassInstall32]
+Addreg=OsrHwClass
+
+[OsrHwClass]
+HKR,,,0,%ClassName%
+HKR,,Icon,,"-5"
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%OsrDio.DeviceDesc%=OsrDio_Device, PCI\VEN_1093&DEV_C4C4
+
+[OsrDio_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+OsrDio.sys
+
+[OsrDio_Device.NT.HW]
+AddReg = OsrDio.EnableMSI
+
+[OsrDio.EnableMSI]
+; ONE MSI
+HKR,"Interrupt Management",,0x00000010
+HKR,"Interrupt Management\MessageSignaledInterruptProperties",,0x00000010
+HKR,"Interrupt Management\MessageSignaledInterruptProperties",MSISupported,0x00010001,1
+HKR,"Interrupt Management\MessageSignaledInterruptProperties",MessageNumberLimit,0x00010001,1
+
+
+;-------------- Service installation
+[OsrDio_Device.NT.Services]
+AddService = OsrDio,%SPSVCINST_ASSOCSERVICE%, OsrDio_Service_Inst
+
+; -------------- OsrDio driver install sections
+[OsrDio_Service_Inst]
+DisplayName    = %OsrDio.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\OsrDio.sys
+
+AddReg         = KMDFVerifierAddReg
+
+[KMDFVerifierAddReg]
+HKR, Parameters\Wdf,VerifierOn,0x00010001,1
+HKR, Parameters\Wdf,VerboseOn,0x00010001,1
+HKR, Parameters\Wdf,DbgBreakOnError,0x00010001,1
+
+;
+;--- OsrDio_Device Coinstaller installation ------
+;
+
+[OsrDio_Device.NT.CoInstallers]
+AddReg=OsrDio_Device_CoInstaller_AddReg
+CopyFiles=OsrDio_Device_CoInstaller_CopyFiles
+
+[OsrDio_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[OsrDio_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[OsrDio_Device.NT.Wdf]
+KmdfService =  OsrDio, OsrDio_wdfsect
+[OsrDio_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="OSR Open Systems Resources, Inc."
+ClassName ="OSR Samples"
+DiskName = "OsrDio Installation Disk"
+OsrDio.DeviceDesc = "OsrDio Device"
+OsrDio.SVCDESC = "OsrDio Example Driver"
+
