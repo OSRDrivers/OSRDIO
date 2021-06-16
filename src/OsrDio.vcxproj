@@ -45,7 +45,7 @@
     <Configuration>Debug</Configuration>
     <Platform Condition="'$(Platform)' == ''">Win32</Platform>
     <RootNamespace>OsrDio</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.20348.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
@@ -100,37 +100,45 @@
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
     <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
+    <SupportsPackaging>true</SupportsPackaging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
+    <SupportsPackaging>true</SupportsPackaging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
     <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
+    <SupportsPackaging>true</SupportsPackaging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
+    <SupportsPackaging>true</SupportsPackaging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
     <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
+    <SupportsPackaging>true</SupportsPackaging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
+    <SupportsPackaging>true</SupportsPackaging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
     <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
+    <SupportsPackaging>true</SupportsPackaging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
+    <SupportsPackaging>true</SupportsPackaging>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -142,51 +150,59 @@
   <PropertyGroup />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <IncludePath>..\inc;$(IncludePath)</IncludePath>
-    <CodeAnalysisRuleSet>..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
-    <CodeAnalysisRuleSet>..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <IncludePath>..\inc;$(IncludePath)</IncludePath>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <IncludePath>..\inc;$(IncludePath)</IncludePath>
-    <CodeAnalysisRuleSet>..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
-    <CodeAnalysisRuleSet>..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <IncludePath>..\inc;$(IncludePath)</IncludePath>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <IncludePath>..\inc;$(IncludePath)</IncludePath>
-    <CodeAnalysisRuleSet>..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
-    <CodeAnalysisRuleSet>..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <IncludePath>..\inc;$(IncludePath)</IncludePath>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <IncludePath>..\inc;$(IncludePath)</IncludePath>
-    <CodeAnalysisRuleSet>..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
-    <CodeAnalysisRuleSet>..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <IncludePath>..\inc;$(IncludePath)</IncludePath>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -200,6 +216,9 @@
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies);usbdex.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
+    <DriverSign>
+      <AdditionalOptions>/fd SHA256 %(AdditionalOptions)</AdditionalOptions>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -208,10 +227,14 @@
       <WppScanConfigurationData Condition="'%(ClCompile.ScanConfigurationData)' == ''">trace.h</WppScanConfigurationData>
       <WppKernelMode>true</WppKernelMode>
       <PreprocessorDefinitions>_X86_=1;i386=1;STD_CALL;%(PreprocessorDefinitions);POOL_NX_OPTIN=1;POOL_ZERO_DOWNLEVEL_SUPPORT=1</PreprocessorDefinitions>
+      <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies);usbdex.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
+    <DriverSign>
+      <AdditionalOptions>/fd SHA256 %(AdditionalOptions)</AdditionalOptions>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -225,6 +248,9 @@
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies);usbdex.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
+    <DriverSign>
+      <AdditionalOptions>/fd SHA256 %(AdditionalOptions)</AdditionalOptions>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -233,10 +259,14 @@
       <WppScanConfigurationData Condition="'%(ClCompile.ScanConfigurationData)' == ''">trace.h</WppScanConfigurationData>
       <WppKernelMode>true</WppKernelMode>
       <PreprocessorDefinitions>_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions);POOL_NX_OPTIN=1;POOL_ZERO_DOWNLEVEL_SUPPORT=1</PreprocessorDefinitions>
+      <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies);usbdex.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
+    <DriverSign>
+      <AdditionalOptions>/fd SHA256 %(AdditionalOptions)</AdditionalOptions>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
@@ -250,6 +280,7 @@
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies);usbdex.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
+    <DriverSign />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
@@ -258,10 +289,12 @@
       <WppScanConfigurationData Condition="'%(ClCompile.ScanConfigurationData)' == ''">trace.h</WppScanConfigurationData>
       <WppKernelMode>true</WppKernelMode>
       <PreprocessorDefinitions>_ARM_;ARM;_USE_DECLSPECS_FOR_SAL=1;STD_CALL;%(PreprocessorDefinitions);POOL_NX_OPTIN=1;POOL_ZERO_DOWNLEVEL_SUPPORT=1</PreprocessorDefinitions>
+      <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies);usbdex.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
+    <DriverSign />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <ClCompile>
@@ -275,6 +308,7 @@
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies);usbdex.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
+    <DriverSign />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <ClCompile>
@@ -283,10 +317,12 @@
       <WppScanConfigurationData Condition="'%(ClCompile.ScanConfigurationData)' == ''">trace.h</WppScanConfigurationData>
       <WppKernelMode>true</WppKernelMode>
       <PreprocessorDefinitions>_ARM64_;ARM64;_USE_DECLSPECS_FOR_SAL=1;STD_CALL;%(PreprocessorDefinitions);POOL_NX_OPTIN=1;POOL_ZERO_DOWNLEVEL_SUPPORT=1</PreprocessorDefinitions>
+      <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies);usbdex.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
+    <DriverSign />
   </ItemDefinitionGroup>
   <ItemGroup>
     <FilesToPackage Include="$(TargetPath)" />
